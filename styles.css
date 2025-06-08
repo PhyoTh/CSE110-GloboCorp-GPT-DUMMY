@@ -1,0 +1,123 @@
+/* ---------- theme tokens ---------- */
+:root {
+    --color-primary-bg: #4d5c71; /* deep slate-blue page background   */
+    --color-surface: #ffffff; /* card & input backgrounds          */
+    --color-genie-msg: #f5f7fb; /* genie bubble                      */
+    --color-user-msg: #e6f0ff; /* user bubble                       */
+    --color-accent: #ff0000; /* bright red for heading instead of dark red */
+    --color-text: #111;
+    --color-text-muted: #626e80;
+    --radius: 12px;
+    --font-base: system-ui, sans-serif;
+}
+
+/* ---------- page shell ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: var(--font-base);
+    color: var(--color-text);
+    background: var(--color-primary-bg);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+.shell {
+    background: var(--color-surface);
+    width: min(95%, 720px);
+    padding: 2rem 2rem 1rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 16px rgba(0 0 0 / 0.15);
+}
+
+/* ---------- headings ---------- */
+h1 {
+    margin: 0 0 0.25rem;
+    color: var(--color-accent);
+    text-align: center;
+}
+.tagline {
+    margin: 0 0 1.5rem;
+    text-align: center;
+    font-style: italic;
+    color: var(--color-text-muted);
+}
+
+/* ---------- chat board ---------- */
+.chat {
+    height: 300px;
+    padding: 1rem;
+    border: 1px solid #cfd6e2;
+    border-radius: var(--radius);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: var(--color-surface);
+}
+.message {
+    max-width: 75%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    line-height: 1.35;
+    font-size: 0.95rem;
+    word-wrap: break-word;
+}
+.message.genie {
+    background: var(--color-genie-msg);
+}
+.message.user {
+    background: var(--color-user-msg);
+    align-self: flex-end;
+    text-align: right;
+}
+.message__role {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+}
+
+/* ---------- prompt form ---------- */
+.prompt {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+.prompt__label {
+    display: none; /* still accessible for screen-readers */
+}
+.prompt__input,
+.prompt__btn {
+    font: inherit;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+}
+.prompt__input {
+    flex: 1;
+    border: 1px solid #cfd6e2;
+}
+.prompt__btn {
+    border: none;
+    background: #6c9cff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.prompt__btn:hover {
+    background: #5a8eff;
+}
+
+/* ---------- misc ---------- */
+.noscript {
+    color: #b00000;
+    font-weight: 600;
+    text-align: center;
+}
